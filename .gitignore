@@ -1,0 +1,8 @@
+bower_components/
+node_modules/
+vagrant/puppet/modules/
+.vagrant/
+.tmp/
+Puppetfile.lock
+.librarian/
+.DS_Store

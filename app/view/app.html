@@ -1,0 +1,11 @@
+<section ng-controller="AppCtrl">
+	<nav>
+		<form class="container search-wrapper">
+			<input type="text" placeholder="Enter city or skill">
+			<button type="submit">Search</button>
+		</form>
+	</nav>
+	<google-map center="map.center"
+		draggable="map.draggable"
+		zoom="map.zoom"></google-map>
+</section>

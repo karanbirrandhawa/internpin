@@ -1,0 +1,12 @@
+{
+  "name": "app132x",
+  "description": "Desc",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-resource": "latest",
+		"angular-google-maps": "latest",
+		"underscore": "latest"
+  }
+}
