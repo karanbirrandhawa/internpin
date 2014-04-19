@@ -1,0 +1,13 @@
+{
+	"name": "InternPin",
+	"version": "0.0.1",
+	"description": "0.0.1",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/karanbirrandhawa/internpin.git"
+	},
+	"author": "Karan Ranhdhawa",
+	"dependencies": {
+		"express": "latest"
+	}
+}

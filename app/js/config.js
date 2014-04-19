@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'ngResource', 'google-maps']);
+angular.module('app', ['ngRoute', 'ngResource', 'google-maps', 'ui.bootstrap']);
 
 angular.module('app').config(function($routeProvider, $locationProvider) {
 	
