@@ -1,7 +1,7 @@
 <section ng-controller="AppCtrl">
 	<nav>
 		<form class="container search-wrapper">
-			<input type="text" placeholder="Enter city or skill">
+			<input type="text" placeholder="Enter city or skill" ng-model="search" typeahead="option for option in options | filter:$viewValue | limitTo:8" >
 			<button type="submit">Search</button>
 		</form>
 	</nav>
