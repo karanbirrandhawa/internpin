@@ -8,8 +8,6 @@
 	},
 	"author": "Karan Ranhdhawa",
 	"dependencies": {
-		"koa": "latest",
-		"koa-route": "latest",
-		"koa-logger": "koa-send"
+		"express": "latest"
 	}
 }
