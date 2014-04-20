@@ -17,7 +17,10 @@
 
 	<google-map center="map.center"
 		draggable="map.draggable"
-		zoom="map.zoom" ng-show="mapView"></google-map>
+		zoom="map.zoom" ng-show="mapView">
+		<marker ng-repeat="marker in markers"
+			coords="marker.coords"></marker>
+	</google-map>
 
 	<div class="listView" ng-show="!mapView" infinite-scroll="appendJobs()" infinite-scroll-distance="7">
 		<div class="card" ng-repeat="job in jobs">

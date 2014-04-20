@@ -3,20 +3,38 @@ angular.module('app').controller('AppCtrl', function($scope, Utils, $http) {
 	$scope.jobs = [];
 	// array of google maps markers
 	$scope.markers = [];
+	$scope.markers.push({
+		coords: {
+			latitude: 43.653226,
+			longitude: -79.38318429999998
+		}
+	});
+
+	$scope.query = "";
+
+	$scope.page = -1;
 
 	// function to append jobs to our result list
 	$scope.appendJobs = function() {
-		if (!$scope.page) $scope.page = 0;
-		else {
-			$scope.page++;
-		}
-		
+		$scope.page++;
+
+		// Set current query 
+		$scope.query = $scope.search;
+
+		// make post request to get list of jobs
 		$http.post('/api/jobs', {query: $scope.search, location: 'Toronto', start: $scope.page}).success(function(data) {
 			angular.forEach(data.results, function(result) {
 				$scope.jobs.push(result);
 			})
 		});
 	}
+
+	// if person changes query after submitting reset job list
+	$scope.$watch('query', function(newVal, oldVal) {
+		$scope.page = -1;
+		$scope.jobs.length = 0;
+		$scope.markers.length = 0;
+	});
 
 	$scope.map = {
 	    center: {
