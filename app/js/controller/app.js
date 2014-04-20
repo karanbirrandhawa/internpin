@@ -1,18 +1,26 @@
-angular.module('app').controller('AppCtrl', function($scope, Utils, $http) {
+angular.module('app').controller('AppCtrl', function($scope, Utils, $http, $sce, geoCoder) {
+	// initial map object
+	$scope.map = {
+	    center: {
+	        latitude: 43.653226,
+	        longitude: -79.38318429999998
+	    },
+	    zoom: 12,
+			draggable: true,
+			refresh: $scope.triggerRefresh
+	};
+
 	// array of jobs
 	$scope.jobs = [];
 	// array of google maps markers
 	$scope.markers = [];
-	$scope.markers.push({
-		coords: {
-			latitude: 43.653226,
-			longitude: -79.38318429999998
-		}
-	});
 
+	// page/search handling
 	$scope.query = "";
-
 	$scope.page = -1;
+
+	// trigger map refresh when this is true
+	$scope.triggerRefresh = false;
 
 	// function to append jobs to our result list
 	$scope.appendJobs = function() {
@@ -22,9 +30,34 @@ angular.module('app').controller('AppCtrl', function($scope, Utils, $http) {
 		$scope.query = $scope.search;
 
 		// make post request to get list of jobs
-		$http.post('/api/jobs', {query: $scope.search, location: 'Toronto', start: $scope.page}).success(function(data) {
+		$http.post('/api/jobs', {query: $scope.search, location: 'Toronto', start: $scope.page, country: 'ca'}).success(function(data) {
 			angular.forEach(data.results, function(result) {
-				$scope.jobs.push(result);
+				console.log(result);
+				// support html binding for snippet
+				result.snippet =  $sce.trustAsHtml(result.snippet);
+
+				// use geocoder to get address for map marker
+				geoCoder.getLocation(result.company + ' ' + result.formattedLocation, function(loc) {
+
+					// create map marker obj from info
+					var marker = {
+						coords: {
+							latitude: loc[0].geometry.location.d,
+							longitude: loc[0].geometry.location.e
+						}
+					}
+
+					// push resultant job to job array
+					$scope.jobs.push(result);
+					// push resultant map marker to map marker array
+					$scope.markers.push(marker);
+
+					// if this is the last result to push, refresh map
+					if (data.results.indexOf(result) === data.results.length - 1) {
+						$scope.triggerRefresh = true;
+					}
+					$scope.triggerRefresh = false;
+				});
 			})
 		});
 	}
@@ -35,15 +68,6 @@ angular.module('app').controller('AppCtrl', function($scope, Utils, $http) {
 		$scope.jobs.length = 0;
 		$scope.markers.length = 0;
 	});
-
-	$scope.map = {
-	    center: {
-	        latitude: 43.653226,
-	        longitude: -79.38318429999998
-	    },
-	    zoom: 12,
-			draggable: true
-	};
 	
 	// switch to alternate between view
 	$scope.mapView = true;
@@ -56,4 +80,4 @@ angular.module('app').controller('AppCtrl', function($scope, Utils, $http) {
 	$scope.forward = function() {
 
 	};
-})
+});

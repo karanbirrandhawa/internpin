@@ -11,6 +11,7 @@ exports.jobs = function(req, res) {
 	var location = req.body.location; 
 	var start = req.body.start;
 	var limit = req.body.limit;
+	var country = req.body.country;
 
 	// our parameters for search
 	var search = 'http://api.indeed.com/ads/apisearch?v=2&format=json&publisher=' + api_key;
@@ -20,6 +21,7 @@ exports.jobs = function(req, res) {
 	if (location) search += '&l=' + location;
 	if (start) search += '&start=' + start;
 	if (limit) search += '&limit=' + limit;
+	if (country) search += '&co=' + country;
 
 	var data;
 
