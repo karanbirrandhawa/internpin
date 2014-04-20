@@ -1,5 +1,6 @@
 .angular-google-map-container { position: absolute; top: 0; left: 0;height: 100%; width: 100%; z-index:150; }
 
+
 /* 
 	Navbar/searchbar style based on: http://speckyboy.com/2012/02/15/how-to-build-a-stylish-css3-search-box/
 */
@@ -158,4 +159,104 @@ nav {
 	-moz-border-top-right-radius: 0;
 	-webkit-border-top-left-radius: 0;
 	-webkit-border-top-right-radius: 0;
+}
+
+/* Location and map switch */
+.switch {
+  top: 85px;
+  right: 5px;
+  position: absolute;
+  z-index:155;
+  padding: 10px;
+}
+
+.opt {
+  background: #FFF;
+  float: right;
+  padding: 10px;
+  width: 40px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.55);
+  -moz-box-shadow:    0px 0px 5px 0px rgba(50, 50, 50, 0.55);
+  box-shadow:         0px 0px 5px 0px rgba(50, 50, 50, 0.55);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+}
+
+.opt i {
+  clear: both;
+}
+
+.switch button {
+  float: right;
+  margin-right: 15px;
+  padding: 10px;
+  font-size: 15px; 
+  background: #FFF;
+  border: 1px solid #b2b2b2;
+  outline: 0;
+  color: #424242;
+}
+.switch button i {
+  padding-left: 5px;
+  color: #b2b2b2;
+}
+
+.switch ul.dropdown-menu {
+  display: block;
+  margin-top: -10px;
+  min-width: 0px;
+  width: 120px;
+  left: 10px;
+  padding: 0px;
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+.switch ul.dropdown-menu li {
+  padding: 10px;
+  cursor: pointer;
+}
+.switch ul.dropdown-menu li:hover {
+  background: #E6E6E6;
+}
+
+/* List view */
+.listView {
+  min-width: 100%;
+  min-height: 100%;
+  background: #f5f5dc;
+  position: absolute;
+  padding-top: 120px;
+}
+
+.card {
+  max-width: 500px;
+  margin: 5px auto;
+  margin-bottom: 45px;
+  padding: 10px;
+  border: 1px solid #D8D8D8;
+  border-bottom-width: 3px;
+  font-family: 'Open Sans', sans-serif;
+  color: #424242;
+  background: #FFF;
+}
+.card h1 {
+  font-size: 20px;
+  margin: 0;
+}
+.card h4 {
+  float: left;
+  margin: 0;
+  font-size: 14px;
+  padding-right: 20px;
+  color: #bfbfbf;
+}
+.card h4.company {
+  color: #A4A4A4;
 }

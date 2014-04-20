@@ -1,11 +1,30 @@
 <section ng-controller="AppCtrl">
 	<nav>
-		<form class="container search-wrapper">
-			<input type="text" placeholder="Enter city or skill" ng-model="search" typeahead="option for option in options | filter:$viewValue | limitTo:8" >
+		<form class="container search-wrapper" ng-submit="appendJobs()">
+			<input type="text" placeholder="Enter skill" ng-model="search" typeahead="option for option in options | filter:$viewValue | limitTo:8">
 			<button type="submit">Search</button>
 		</form>
 	</nav>
+	<div class="switch">
+		<span class="opt" ng-show="!mapView" ng-click="mapView = !mapView"><i class="fa fa-map-marker"></i></span>
+		<span class="opt" ng-show="mapView" ng-click="mapView = !mapView"><i class="fa fa-bars"></i></span>
+		<button class="btn" ng-click="showDrop = !showDrop">Toronto, ON <i class="fa fa-caret-down"></i></button>
+		<ul class="dropdown-menu" ng-show="showDrop">
+			<li>Waterloo, ON</li>
+			<li>Ottawa, ON</li>
+		</ul>
+	</div>
+
 	<google-map center="map.center"
 		draggable="map.draggable"
-		zoom="map.zoom"></google-map>
+		zoom="map.zoom" ng-show="mapView"></google-map>
+
+	<div class="listView" ng-show="!mapView" infinite-scroll="appendJobs()" infinite-scroll-distance="7">
+		<div class="card" ng-repeat="job in jobs">
+			<h1>{{job.jobtitle}}</h1>
+			<p>{{job.snippet}}</p>
+			<h4 class="company">{{job.company}}</h4><h4>{{job.formattedLocation}}</h4>
+			<div class="clearfix"></div>
+		</div>
+	</div>
 </section>
