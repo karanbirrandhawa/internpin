@@ -6,9 +6,9 @@
     "angular": "latest",
     "angular-route": "latest",
     "angular-resource": "latest",
-		"angular-google-maps": "latest",
-		"underscore": "latest",
-		"angular-bootstrap": "latest",
-    "ngInfiniteScroll": "latest"
+		"angular-google-maps": "1.1.0",
+		"underscore": "1.6.0",
+		"angular-bootstrap": "0.11.0",
+    "ngInfiniteScroll": "1.1.1"
   }
 }
