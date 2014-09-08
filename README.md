@@ -1,7 +1,7 @@
 internpin
 =========
 
-Interpin is an excercise into AngularJS, Node and Google Maps. In order to test it requires an Indeed API Key. By scraping the Indeed API servers it will return a list of intern jobs within the Toronto, Waterloo or Ottawa area (depending on location settings) and display them as either map markers on the Google Maps screen or as an infinite scrolling list which will populate with new results as you scroll farther down. It was a fun weekend webapp to build and really helped showcase how easy and fast it is to get an Angular-Node-Express webapp running. Would definitely reccomend this stack especially to people wanting to showcase a quick prototype.
+Interpin is an excercise into Angular, Node and Google Maps. In order to test it requires an Indeed API Key. By scraping the Indeed API servers it will return a list of intern jobs within the Toronto, Waterloo or Ottawa area (depending on location settings) and display them as either map markers on the Google Maps screen or as an infinite scrolling list which will populate with new results as you scroll farther down. It was a fun weekend webapp to build and really helped showcase how easy and fast it is to get an Angular-Node-Express webapp running. Would definitely reccomend this stack especially to people wanting to showcase a quick prototype.
 
 ![ScreenShot](media/preview1.png)
 ![ScreenShot](media/preview2.png)
