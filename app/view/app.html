@@ -8,16 +8,18 @@
 	<div class="switch">
 		<span class="opt" ng-show="!mapView" ng-click="mapView = !mapView"><i class="fa fa-map-marker"></i></span>
 		<span class="opt" ng-show="mapView" ng-click="mapView = !mapView"><i class="fa fa-bars"></i></span>
-		<button class="btn" ng-click="showDrop = !showDrop">Toronto, ON <i class="fa fa-caret-down"></i></button>
+		<button class="btn" ng-click="showDrop = !showDrop">{{locationArray[0].name}} <i class="fa fa-caret-down"></i></button>
 		<ul class="dropdown-menu" ng-show="showDrop">
-			<li>Waterloo, ON</li>
-			<li>Ottawa, ON</li>
+			<li ng-click="switchLocation(1)">{{locationArray[1].name}}</li>
+			<li ng-click="switchLocation(2)">{{locationArray[2].name}}</li>
 		</ul>
 	</div>
 
 	<google-map id="gMap"
 		center="map.center"
 		draggable="map.draggable"
+		refresh="map.refresh"
+		control="map.control"
 		zoom="map.zoom" ng-show="mapView">
 		<marker ng-repeat="marker in markers"
 			coords="marker.coords"></marker>

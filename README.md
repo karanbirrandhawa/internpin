@@ -3,13 +3,16 @@ internpin
 
 Interpin is an xcercise into AngularJS, Node and Google Maps. In order to test it requires an Indeed API Key. 
 
+![alt tag](media/preview1.png)
+![alt tag](media/preview2.png)
+
 ## Getting Started
 
 ### Requirements 
 
 Before getting started there are some things that you require: 
 
-* Google Maps API Key 
+* Indeed.ca API key
 * NodeJS installed
 
 ### Cloning and Dependencies
@@ -44,3 +47,8 @@ After:
 ### Check it out 
 
 The application shoul now be running on localhost:3000.
+
+### Bugs and Todo
+
+* Fix error on job loading that prevents switching job queries from reloading map markers
+* Add map marker preview 
