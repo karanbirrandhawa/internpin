@@ -3,8 +3,8 @@ internpin
 
 Interpin is an xcercise into AngularJS, Node and Google Maps. In order to test it requires an Indeed API Key. 
 
-![alt tag](media/preview1.png)
-![alt tag](media/preview2.png)
+![ScreenShot](media/preview1.png)
+![ScreenShot](media/preview2.png)
 
 ## Getting Started
 
